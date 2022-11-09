@@ -23,3 +23,7 @@ create table if not exists Employee
     id int,
     name varchar(50)
 );
+
+--- List down command for all the TABLES
+
+show create table Employee;
