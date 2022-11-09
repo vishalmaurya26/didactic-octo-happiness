@@ -7,3 +7,7 @@ create database Test;
 #Get list of existing databases
 
 Show databases;
+
+#Drop a DATABASE
+
+Drop Database Test;
