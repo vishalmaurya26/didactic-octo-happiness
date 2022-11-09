@@ -11,3 +11,15 @@ Show databases;
 #Drop a DATABASE
 
 Drop Database Test;
+---Go inside a particular DATABASE
+
+use BigDataBootCamp;
+
+
+---create a table in DATABASE
+
+create table if not exists Employee
+(
+    id int,
+    name varchar(50)
+);
