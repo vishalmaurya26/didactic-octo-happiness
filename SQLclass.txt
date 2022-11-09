@@ -85,4 +85,128 @@ Create table if not exists Employee_with_constraints_tmp
     CONSTRAINT salary_check CHECK (salary > 10000)
 );
 
+Create database class2;
+
+use class2
+
+create table if not exists emp
+(
+    id int,
+    name VARCHAR(50),
+    address VARCHAR(50),
+    city VARCHAR(50)
+);
+
+insert into emp values(1,'KV','SAMA','Vadodara')
+
+select * from emp
+
+#add new column named DOB in table
+
+alter table emp add DOB date;
+
+#Modify existing column in TABLE or Change datatype of name column or Increase length of name column
+
+alter table emp modify column name varchar(100);
+
+---Delete existing column from given TABLE or remove city column from emp table
+
+alter table emp drop column city;
+
+---Rename a column in a TABLE
+
+alter table emp rename column name to full_name;
+
+---add unique integrity constraint on Id COLUMN
+
+alter table emp add constraint id_unique UNIQUE(id);
+
+---drop constraint from existing table
+
+alter table emp drop constraint id_unique;
+
+insert into emp values(1,'Krishna','rhij','2021-09-21')
+
+---Create table with Primary Key
+
+create table persons
+(
+    id int,
+    name varchar(50),
+    age int,
+    ---Primary KEY
+    constraint pk Primary Key (id)
+);
+
+insert into persons values(1,'Krishna',28);
+
+insert into persons values(null,'Krishna',28);
+
+alter table persons add constraint age_unq UNIQUE(age);
+
+insert into persons values(2,'Vishal',29);
+
+insert into persons values(3,'Vish',null);
+
+insert into persons values(4,'krish',null);
+
+---create table for Foreign Key 
+
+create table customer
+(
+    cust_id int,
+    name varchar(50),
+    age int,
+    constraint pk Primary Key (cust_id)
+);
+
+create table orders
+(
+    order_id int,
+    order_num int,
+    customer_id int,
+    constraint pk Primary Key (order_id),
+    constraint fk Foreign Key (customer_id) REFERENCES customer(cust_id)
+);
+
+--- Operations with select command
+
+
+create table employee
+(
+    id int,
+    name varchar(50),
+    age int,
+    hiring_date date,
+    salary int,
+    city varchar(50)
+);
+
+insert into employee values(1,'Krishna',28,'2021-09-08',50000,'Vadodara');
+insert into employee values(2,'Krish',29,'2021-09-09',55000,'Vadod');
+insert into employee values(3,'Krisha',30,'2021-09-10',60000,'Vadoda');
+insert into employee values(4,'KrishVish',31,'2021-09-11',65000,'Vado');
+
+---Alias
+
+select count(*) as total from employee;
+
+---display few columns
+select name, salary from employee
+
+---alias for multiple COLUMN
+
+select name as Nm, salary as sal from employee
+
+---print unique hiring_date from the table
+
+select distinct(hiring_date) from employee
+
+
+---how many unique age values in the table
+
+select count(distinct(age)) from employee
+
+
+
 
