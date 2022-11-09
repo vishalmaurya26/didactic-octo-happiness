@@ -207,6 +207,40 @@ select distinct(hiring_date) from employee
 
 select count(distinct(age)) from employee
 
+---Increment salary by 20% and display final result with salary
+
+select id,
+       name,
+       salary as old_salary,
+       (salary+ salary *0.2) as new_salary
+from employee;
+
+---syntax for update command
+update employee set age = 20;
+
+---update the salary after giving 20% increment
+
+update employee set salary = salary + salary * 0.2;
+select * from employee
+
+--- how to filter data using where clause
+
+select * from employee where hiring_date = '2021-09-10'
+
+---update the salary of employees who joined the company on 10 august to 80000
+
+update employee set salary = 80000 where hiring_date = '2021-09-10';
+
+select * from employee
+
+---delete command to delete specific records from table 
+---delete records of employees who joined on 2021-09-10
+
+delete from employee where hiring_date = '2021-09-10'
+
+
+
+
 
 
 
